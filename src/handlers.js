@@ -17,7 +17,14 @@ const handleHome = (request, response) => {
 };
 
 const handleSubmit = (request, response) => {
-  console.log(request);
+  let allTheData = "";
+  request.on("data", chunk => {
+    allTheData += chunk;
+  });
+  request.on("end", () => {
+    // Add new chunk to the DB
+  });
+
   response.end();
 };
 
