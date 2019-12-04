@@ -22,10 +22,27 @@ const handleSubmit = (request, response) => {
     allTheData += chunk;
   });
   request.on("end", () => {
-    // Add new chunk to the DB
+    let { username, quality } = helperExtractUser(allTheData);
+    quality = stringToInteger(quality);
+    queries.addUser(username, quality, err => {
+      if (err) {
+        console.log("Error with submission");
+      } else {
+        response.writeHead(200, { "content-type": "text/html" });
+        response.end();
+      }
+    });
   });
 
   response.end();
+};
+
+const helperExtractUser = dataStream => {
+  return querystring.parse(dataStream);
+};
+
+const stringToInteger = str => {
+  return parseInt(str);
 };
 
 module.exports = { handleHome, handleSubmit };

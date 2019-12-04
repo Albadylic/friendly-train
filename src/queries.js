@@ -14,4 +14,4 @@ const addUser = (userName, userQuality, cb) => {
   );
 };
 
-module.exports = addUser;
+module.exports = { addUser };
