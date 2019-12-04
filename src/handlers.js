@@ -16,4 +16,9 @@ const handleHome = (request, response) => {
   });
 };
 
-module.exports = { handleHome };
+const handleSubmit = (request, response) => {
+  console.log(request);
+  response.end();
+};
+
+module.exports = { handleHome, handleSubmit };
