@@ -15,3 +15,5 @@ const handleHome = (request, response) => {
     }
   });
 };
+
+module.exports = { handleHome };
