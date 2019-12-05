@@ -58,7 +58,7 @@ tape("Test Select all users query", t => {
   runDBBuild((err, res) => {
     queries.selectAllUsers((err, res) => {
       const expected = res.rows;
-      const firstItem = expected[0][0];
+      const firstItem = expected[0];
       t.equals(expected.length, 4, "There are four items in default array");
       t.equals(firstItem.id, 1, "First item has ID of 1");
       t.equals(firstItem.name, "Alf", "First item has name Alf");

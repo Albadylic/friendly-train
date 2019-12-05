@@ -28,4 +28,14 @@ const selectUserByName = (searchName, cb) => {
   );
 };
 
-module.exports = { addUser, selectUserByName };
+const selectAllUsers = cb => {
+  dbConnection.query(`SELECT * FROM users`, (err, res) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, res);
+    }
+  });
+};
+
+module.exports = { addUser, selectUserByName, selectAllUsers };
