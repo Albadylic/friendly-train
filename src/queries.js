@@ -14,4 +14,28 @@ const addUser = (userName, userQuality, cb) => {
   );
 };
 
-module.exports = { addUser };
+const selectUserByName = (searchName, cb) => {
+  dbConnection.query(
+    `SELECT * FROM users WHERE name = $1`,
+    [searchName],
+    (err, res) => {
+      if (err) {
+        cb(err);
+      } else {
+        cb(null, res);
+      }
+    }
+  );
+};
+
+const selectAllUsers = cb => {
+  dbConnection.query(`SELECT * FROM users`, (err, res) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, res);
+    }
+  });
+};
+
+module.exports = { addUser, selectUserByName, selectAllUsers };

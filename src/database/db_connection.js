@@ -6,6 +6,8 @@ let DATABASE_URL = process.env.DATABASE_URL;
 
 if (process.env.NODE_ENV === "test") {
   DATABASE_URL = process.env.TEST_DATABASE_URL;
+} else if (process.env.NODE_ENV === "local") {
+  DATABASE_URL = process.env.LOCAL_DATABASE_URL;
 }
 
 if (!DATABASE_URL) {
