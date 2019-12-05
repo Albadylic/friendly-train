@@ -36,9 +36,19 @@ tape("Test addUser query adds to DB", t => {
             "testUser",
             "testUser is added to DB"
           );
+          t.end();
         });
       });
     });
+  });
+});
+
+tape("Test Select users query", t => {
+  runDBBuild((err, res) => {
+    let expected = queries.selectUserByName("Dave");
+
+    t.equals(expected.id, 4, "Dave's ID is 4");
+    t.equals(expected.quality, 1, "Dave's quality has value 1.");
 
     t.end();
   });
