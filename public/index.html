@@ -8,15 +8,40 @@
     <title>Friendly Train</title>
   </head>
   <body>
-    <header><h1>Friendly Train</h1></header>
+    <header>
+      <h1>Friendly Train</h1>
+      <p>
+        Choo Choo! All aboard the Friendly Train. Answer the Quiz below and get
+        on a carriage!
+      </p>
+    </header>
     <section><h2>Body</h2></section>
     <form action="/submit" method="POST">
-      <label for="username">Username: </label>
+      <label for="username">Passenger Name: </label>
       <input type="text" name="username" id="username" />
-      <label for="selection-1">Selection 1</label>
-      <input type="radio" name="quality" id="selection-1" value="1" />
-      <label for="selection-2">Selection 2</label>
-      <input type="radio" name="quality" id="selection-2" value="2" />
+
+      <p>How energetic are you?</p>
+
+      <label for="excitable">Excitable</label>
+      <input type="radio" name="energy" id="excitable" value="1" />
+      <label for="laid-back">Laid Back</label>
+      <input type="radio" name="energy" id="laid-back" value="2" />
+
+      <p>Are you sociable?</p>
+
+      <label for="talkative">Talktative</label>
+      <input type="radio" name="sociability" id="talkative" value="1" />
+      <label for="reserved">Reserved</label>
+      <input type="radio" name="sociability" id="reserved" value="2" />
+<br/>
+      <label for="animal-type">What animal are you?</label>
+      <select id="animal-type">
+        <option value="panther">Octopus</option>
+        <option value="elephant">Elephant</option>
+        <option value="platypus">Platypus</option>
+        <option value="tortoise">Tortoise</option>
+      </select>
+    </br>
       <input type="submit" />
     </form>
 
