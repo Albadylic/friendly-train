@@ -43,12 +43,26 @@ tape("Test addUser query adds to DB", t => {
   });
 });
 
-tape("Test Select users query", t => {
+tape("Test Select user by name query", t => {
   runDBBuild((err, res) => {
     queries.selectUserByName("Dave", (err, res) => {
       const expected = res.rows[0];
       t.equals(expected.id, 4, "Dave's ID is 4");
       t.equals(expected.quality, 1, "Dave's quality has value 1.");
+      t.end();
+    });
+  });
+});
+
+tape("Test Select all users query", t => {
+  runDBBuild((err, res) => {
+    queries.selectAllUsers((err, res) => {
+      const expected = res.rows;
+      const firstItem = expected[0][0];
+      t.equals(expected.length, 4, "There are four items in default array");
+      t.equals(firstItem.id, 1, "First item has ID of 1");
+      t.equals(firstItem.name, "Alf", "First item has name Alf");
+      t.equals(firstItem.quality, 0, "First item has quality 0");
 
       t.end();
     });
