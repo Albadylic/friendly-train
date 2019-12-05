@@ -4,30 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./public/style.css" />
     <title>Friendly Train</title>
   </head>
   <body>
     <header>
-      <h1>Friendly Train</h1>
-      <p>
+      <h1 id="header__title">Friendly Train</h1>
+      <p id="header__subtitle">
         Choo Choo! All aboard the Friendly Train. Answer the Quiz below and get
         on a carriage!
       </p>
     </header>
-    <section><h2>Body</h2></section>
+    <section id="body"><h2>Add a Passenger</h2>
     <form action="/submit" method="POST">
       <label for="username">Passenger Name: </label>
+      <br/>
       <input type="text" name="username" id="username" />
 
-      <p>How energetic are you?</p>
+      <p class="body__question">How energetic are you?</p>
 
       <label for="excitable">Excitable</label>
       <input type="radio" name="energy" id="excitable" value="1" />
       <label for="laid-back">Laid Back</label>
       <input type="radio" name="energy" id="laid-back" value="2" />
 
-      <p>Are you sociable?</p>
+      <p class="body__question">Are you sociable?</p>
 
       <label for="talkative">Talktative</label>
       <input type="radio" name="sociability" id="talkative" value="1" />
@@ -35,6 +36,7 @@
       <input type="radio" name="sociability" id="reserved" value="2" />
 <br/>
       <label for="animal-type">What animal are you?</label>
+      <br/>
       <select id="animal-type" name="animal">
         <option value="panther">Panther</option>
         <option value="elephant">Elephant</option>
@@ -44,6 +46,7 @@
     </br>
       <input type="submit" />
     </form>
+  </section>
 
     <footer><p>Here is a footer...</p></footer>
     <script src="script.js"></script>
