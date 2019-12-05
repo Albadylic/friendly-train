@@ -45,11 +45,12 @@ tape("Test addUser query adds to DB", t => {
 
 tape("Test Select users query", t => {
   runDBBuild((err, res) => {
-    let expected = queries.selectUserByName("Dave");
+    queries.selectUserByName("Dave", (err, res) => {
+      const expected = res.rows[0];
+      t.equals(expected.id, 4, "Dave's ID is 4");
+      t.equals(expected.quality, 1, "Dave's quality has value 1.");
 
-    t.equals(expected.id, 4, "Dave's ID is 4");
-    t.equals(expected.quality, 1, "Dave's quality has value 1.");
-
-    t.end();
+      t.end();
+    });
   });
 });
