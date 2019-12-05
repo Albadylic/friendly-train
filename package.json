@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test tape tests/*.js | tap-spec",
-    "start": "nodemon src/server.js"
+    "test": "NODE_ENV=test tape src/tests/*.js | tap-spec",
+    "start": "NODE_ENV=local nodemon src/server.js"
   },
   "repository": {
     "type": "git",
