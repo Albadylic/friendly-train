@@ -11,9 +11,9 @@ tape("Check DB builds with no errors", t => {
   });
 });
 
-runDBBuild((err, res) => {
-  tape("Test addUser query adds to DB", t => {
-    dbConnection.query("SELECT * FROM users", async (err, res) => {
+tape("Test addUser query adds to DB", t => {
+  runDBBuild((err, res) => {
+    dbConnection.query("SELECT * FROM users", (err, res) => {
       const expectedBefore = res.rows;
       t.equals(expectedBefore.length, 4, "Length of original array is 4");
       t.false(
@@ -22,7 +22,7 @@ runDBBuild((err, res) => {
       );
 
       queries.addUser("testUser", 1, err => {
-        t.error(err, "No error");
+        t.error(err, "No error in insertion");
 
         dbConnection.query("SELECT * FROM users", (err, res) => {
           const expectedAfter = res.rows;
