@@ -22,9 +22,12 @@ const handleSubmit = (request, response) => {
     allTheData += chunk;
   });
   request.on("end", () => {
-    let { username, quality } = helperExtractUser(allTheData);
-    quality = stringToInteger(quality);
-    queries.addUser(username, quality, err => {
+    console.log(allTheData);
+    let { username, energy, sociability, animal } = helperExtractUser(
+      allTheData
+    );
+    energy = stringToInteger(energy);
+    queries.addUser(username, energy, sociability, animal, err => {
       if (err) {
         console.log("Error with submission");
       } else {

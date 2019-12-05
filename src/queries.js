@@ -1,9 +1,9 @@
 const dbConnection = require("./database/db_connection");
 
-const addUser = (userName, userQuality, cb) => {
+const addUser = (userName, userEnergy, userSociability, userAnimal, cb) => {
   dbConnection.query(
-    `INSERT INTO users(name, quality) VALUES ($1, $2)`,
-    [userName, userQuality],
+    `INSERT INTO users(name, energy, sociability, animal) VALUES ($1, $2, $3, $4)`,
+    [userName, userEnergy, userSociability, userAnimal],
     (err, res) => {
       if (err) {
         cb(err);
